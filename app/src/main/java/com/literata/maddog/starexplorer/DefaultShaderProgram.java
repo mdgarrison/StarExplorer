@@ -1,6 +1,5 @@
 package com.literata.maddog.starexplorer;
 
-import com.literata.maddog.starexplorer.R;
 import android.content.Context;
 import android.opengl.GLES20;
 

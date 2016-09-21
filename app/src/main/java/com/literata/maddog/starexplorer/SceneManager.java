@@ -1,8 +1,9 @@
 package com.literata.maddog.starexplorer;
 
-import java.util.*;
-
 import android.opengl.GLES20;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SceneManager {
     private int mNumModels;

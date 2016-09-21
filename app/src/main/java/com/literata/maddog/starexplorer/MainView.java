@@ -1,14 +1,10 @@
 package com.literata.maddog.starexplorer;
 
-import android.opengl.GLSurfaceView;
-import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.view.MotionEvent;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.PixelFormat;
-import android.graphics.PointF;
+import android.opengl.GLSurfaceView;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 
 public class MainView extends GLSurfaceView {
     private MainRenderer mRenderer;

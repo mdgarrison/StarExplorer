@@ -1,14 +1,12 @@
 package com.literata.maddog.starexplorer;
 
+import android.content.Context;
+import android.graphics.PointF;
 import android.opengl.GLES20;
-import android.opengl.Matrix;
+import android.opengl.GLSurfaceView.Renderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-
-import android.content.Context;
-import android.graphics.PointF;
-import android.opengl.GLSurfaceView.Renderer;
 
 public class MainRenderer implements Renderer {
     private float mCameraDistance = 5.0f;
@@ -61,10 +59,6 @@ public class MainRenderer implements Renderer {
 
         mManager  = new SceneManager();
 
-        //mEarth = new Earth(mContext, mManager);
-        //mEarth.setVisibleFlag(mSwapFlag);
-        //mManager.addModelObject(mEarth);
-        
         mPointLight = new PointLight(mContext, mManager);
         mManager.addModelObject(mPointLight);
         
@@ -76,9 +70,6 @@ public class MainRenderer implements Renderer {
         
         mStarField = new StarField(mContext, mManager);
         mManager.addModelObject(mStarField);
-        
-        //mMoon = new Moon(mContext, mManager);
-        //mManager.addModelObject(mMoon);
     }
     
     public void initCameras() {
@@ -97,12 +88,6 @@ public class MainRenderer implements Renderer {
     }
 
     public void initShaders() {
-        //mEarthDaysideShader = new EarthDaysideShaderProgram(mContext);
-        //mEarthNightsideShader = new EarthNightsideShaderProgram(mContext);
-
-        //mManager.setPrimaryShader(mEarth, mEarthDaysideShader);
-        //mManager.setSecondaryShader(mEarth, mEarthNightsideShader);
-        
         mDefaultShader = new DefaultShaderProgram(mContext);
         mManager.setPrimaryShader(mPointLight,  mDefaultShader);
         
@@ -111,35 +96,6 @@ public class MainRenderer implements Renderer {
         mManager.setPrimaryShader(mRefLines,  mDefaultShader);
 
         mManager.setPrimaryShader(mStarField,  mDefaultShader);
-        
-        //mManager.setPrimaryShader(mMoon, mEarthDaysideShader);
-        //mManager.setSecondaryShader(mMoon, mEarthNightsideShader);
-    }
-    
-    public void setFieldOfView(float fov) {
-        mManager.getActiveCamera().setFieldOfView(fov);
-    }
-    
-    public float getFieldOfView() {
-        return mManager.getActiveCamera().getFieldOfView();
-    }
-
-    public void setUserAngles(PointF angle) {
-        mUserCameraOrbitAngle.x = (mLockX ? 0.0f : angle.x / 10.0f);
-        mUserCameraOrbitAngle.y = (mLockY ? 0.0f : angle.y / 10.0f);
-    }
-    
-    public void clearUserAngles() {
-        mUserAngle.x = 0f;
-        mUserAngle.y = 0f;
-    }
-    
-    public float getCameraDistance() {
-        return 0f; //mEyePosition[2];
-    }
-
-    public void toggleDebugger() {
-        mToggleDebug = mToggleDebug != true;
     }
     
     public int getToggleMagnitude() {
@@ -153,18 +109,6 @@ public class MainRenderer implements Renderer {
             mMagnitudeToggle = 0;
         }
         return mMagnitudeToggle;
-    }
-
-    public int getToggleStep() {
-        return mToggleStep;
-    }
-    
-    public int toggleStep() {
-        mToggleStep++;
-        if (mToggleStep > 9) {
-            mToggleStep = 0;
-        }
-        return mToggleStep;
     }
 
     public boolean toggleLockY() {
@@ -199,15 +143,6 @@ public class MainRenderer implements Renderer {
         return mSphereVisible;
     }
     
-    public boolean getToggleGridRefsVisible() {
-        return mGridRefsVisible;
-    }
-    
-    public boolean toggleGridRefsVisible() {
-        mGridRefsVisible = (!mGridRefsVisible);
-        return mGridRefsVisible;
-    }
-    
     public boolean getToggleRefs() {
         return mSphereRefsVisible;
     }
@@ -218,50 +153,8 @@ public class MainRenderer implements Renderer {
         return mSphereRefsVisible;
     }
 
-    public boolean getToggleSwap() {
-        return mSwapFlag;
-    }
-
-    public boolean toggleSwap() {
-        mSwapFlag = (!mSwapFlag);
-        //mEarth.setVisibleFlag(mSwapFlag);
-        return mSwapFlag;
-    }
-    
-    public boolean getTogglePov() {
-        return mTogglePov;
-    }
-    
-    public boolean togglePov() {
-        mTogglePov = (!mTogglePov);
-        return mTogglePov;
-    }
-    
-    public boolean getToggleProjection() {
-        return mToggleProjection;
-    }
-    
-    public boolean toggleProjection() {
-        mToggleProjection = (!mToggleProjection);
-        return mToggleProjection;
-    }
-    
-    public float setCameraDistance(float newZ) {
-        return newZ;
-    }
-    
-    void setDeltaXY(float x, float y) {
-    }
-    
-    void clearDeltaXY() {
-    }
-    
     public String toggleActiveCamera() {
         mManager.toggleActiveCamera();
-        return mManager.getActiveCamera().getCameraName();
-    }
-    
-    public String getToggleActiveCamera() {
         return mManager.getActiveCamera().getCameraName();
     }
     
@@ -279,27 +172,19 @@ public class MainRenderer implements Renderer {
         return true; //mEarth.getTogglePlanetRotation();
     }
     
-    public void setTogglePlanetRotation(boolean val) {
-        //mEarth.setTogglePlanetRotation(val);
-    }
-
     /*
      * ***********************************************************************
      * Light Rotation Controls
      * ***********************************************************************
      */
     public boolean toggleLightRotation() {
-        return true; //mEarth.toggleLightRotation();
+        return true;
     }
     
     public boolean getToggleLightRotation() {
-        return true; //mEarth.getToggleLightRotation();
+        return true;
     }
 
-    public void setToggleLightRotation(boolean val) {
-        //mEarth.setToggleLightRotation(val);
-    }
-    
     /*
      * ***********************************************************************
      * Camera Rotation Controls
@@ -314,19 +199,11 @@ public class MainRenderer implements Renderer {
         return mToggleCameraRotation;
     }
     
-    public void setToggleCameraRotation(boolean val) {
-        mToggleCameraRotation = val;
-    }
-    
-    
-    
     @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
 
         initShaders();
 
-        //mEarthDaysideShader.onSurfaceCreated();
-        //mEarthNightsideShader.onSurfaceCreated();
         mDefaultShader.onSurfaceCreated();
         mManager.onSurfaceCreated();
     }

@@ -1,12 +1,10 @@
 package com.literata.maddog.starexplorer;
 
-import com.literata.maddog.starexplorer.R;
-
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -44,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
     	}
     }
 
-    RotationEnum rotEnum = RotationEnum.ROTATE_NONE;
-    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

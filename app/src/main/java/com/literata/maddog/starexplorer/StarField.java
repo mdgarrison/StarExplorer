@@ -1,11 +1,11 @@
 package com.literata.maddog.starexplorer;
 
+import android.content.Context;
+import android.opengl.GLES20;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import android.content.Context;
-import android.opengl.GLES20;
 
 public class StarField extends ModelObject {
     private Utils mUtilStar = new Utils();
@@ -132,7 +132,6 @@ public class StarField extends ModelObject {
 
     public void drawVBO() {
         DefaultShaderProgram shader = (DefaultShaderProgram) mPrimaryShader;
-        //GLES20.glEnable(GLES20.GL_DEPTH_TEST);
         GLES20.glUseProgram(shader.getProgramOid());
 
         GLES20.glUniformMatrix4fv(shader.uMatrixLocation, 1, false, mMvpMatrix, 0);
@@ -142,6 +141,5 @@ public class StarField extends ModelObject {
         GLES20.glEnableVertexAttribArray(shader.aColorLocation);
         GLES20.glVertexAttribPointer(shader.aColorLocation, COLOR_COMPONENT_COUNT, GLES20.GL_FLOAT, false, mStride, POSITION_COMPONENT_COUNT * BYTES_PER_FLOAT);
         GLES20.glDrawArrays(mDrawMode, 0, mNumVerticesToDraw);
-        //GLES20.glDisable(GLES20.GL_DEPTH_TEST);
     }
 }
