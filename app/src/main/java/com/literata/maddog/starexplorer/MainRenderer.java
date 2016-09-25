@@ -15,7 +15,6 @@ public class MainRenderer implements Renderer {
     //private Earth           mEarth;
     private PointLight      mPointLight;
     private CelestialSphere mCelestialSphere;
-    private ReferenceLines  mRefLines;
     private StarField       mStarField;
     //private Moon            mMoon;
 
@@ -65,9 +64,6 @@ public class MainRenderer implements Renderer {
         mCelestialSphere = new CelestialSphere(mContext, mManager);
         mManager.addModelObject(mCelestialSphere);
         
-        mRefLines = new ReferenceLines(mContext, mManager);
-        mManager.addModelObject(mRefLines);
-        
         mStarField = new StarField(mContext, mManager);
         mManager.addModelObject(mStarField);
     }
@@ -93,8 +89,6 @@ public class MainRenderer implements Renderer {
         
         mManager.setPrimaryShader(mCelestialSphere,  mDefaultShader);
         
-        mManager.setPrimaryShader(mRefLines,  mDefaultShader);
-
         mManager.setPrimaryShader(mStarField,  mDefaultShader);
     }
     
@@ -149,7 +143,6 @@ public class MainRenderer implements Renderer {
 
     public boolean toggleRefs() {
         mSphereRefsVisible = (!mSphereRefsVisible);
-        mRefLines.setVisibleFlag(mGridRefsVisible);
         return mSphereRefsVisible;
     }
 
@@ -215,7 +208,6 @@ public class MainRenderer implements Renderer {
         GLES20.glViewport(0, 0, mWidth, mHeight);
 
         initCameras();
-        mManager.setActiveCamera(mCamera1);
     }
 
     @Override

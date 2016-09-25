@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">StarExplorer</string>
+    <string name="lbl_Button1">Sphere</string>
+    <string name="lbl_Button2">Orbit</string>
+    <string name="lbl_Button3">Reset</string>
+    <string name="lbl_Button4">Zpos</string>
+    <string name="lbl_Button5">Zneg</string>
+    <string name="lbl_Button6">Xpos</string>
+    <string name="lbl_Button7">Xneg</string>
+    <string name="lbl_Button8">Ypos</string>
+    <string name="lbl_Button9">Yneg</string>
+    <string name="lbl_ButtonA">Orig</string>
 </resources>

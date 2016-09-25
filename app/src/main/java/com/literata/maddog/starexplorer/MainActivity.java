@@ -12,17 +12,17 @@ public class MainActivity extends AppCompatActivity {
     private MainView mView;
     private final int mVibTime = 25;
     private Vibrator myVib;
-    Button b_Sphere;
-    Button b_Mag;
-    Button b_LockX;
-    Button b_LockY;
-    Button b_Reset;
+    Button b_Button1;
+    Button b_Button2;
+    Button b_Button3;
+    Button b_Button4;
+    Button b_Button5;
     
-    Button b_Pov;
-    Button b_PlanetRot;
-    Button b_LightRot;
-    Button b_CameraRot;
-    Button b_Refs;
+    Button b_Button6;
+    Button b_Button7;
+    Button b_Button8;
+    Button b_Button9;
+    Button b_ButtonA;
     
     public enum RotationEnum {
     	ROTATE_NONE,
@@ -52,138 +52,138 @@ public class MainActivity extends AppCompatActivity {
 
 		mView = (MainView) findViewById(R.id.tmainView);
 		
-		b_Sphere = (Button) findViewById(R.id.button1);
-		b_Sphere.setText("Sphere");
-		b_Sphere.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_Sphere.setTextColor(mView.getToggleSphereVisible() == true ? Color.GREEN : Color.BLACK);
+		b_Button1 = (Button) findViewById(R.id.button1);
+		b_Button1.setText(R.string.lbl_Button1);
+		b_Button1.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button1.setTextColor(mView.getToggleSphereVisible() == true ? Color.GREEN : Color.BLACK);
 
-		b_Mag = (Button) findViewById(R.id.button2);
-		b_Mag.setText("Mag:" + Integer.toString(mView.getToggleMagnitude()));
-		b_Mag.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_Mag.setTextColor(Color.GREEN);
+		b_Button2 = (Button) findViewById(R.id.button2);
+		b_Button2.setText(R.string.lbl_Button2);
+		b_Button2.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button2.setTextColor(Color.GREEN);
 		
-		b_LockX = (Button) findViewById(R.id.button3);
-		b_LockX.setText("LockX");
-		b_LockX.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_LockX.setTextColor(mView.getToggleLockX() == true ? Color.GREEN : Color.BLACK);
+		b_Button3 = (Button) findViewById(R.id.button3);
+		b_Button3.setText(R.string.lbl_Button3);
+		b_Button3.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button3.setTextColor(mView.getToggleLockX() == true ? Color.GREEN : Color.BLACK);
 
-		b_LockY = (Button) findViewById(R.id.button4);
-		b_LockY.setText("LockY");
-		b_LockY.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_LockY.setTextColor(mView.getToggleLockY() == true ? Color.GREEN : Color.BLACK);
+		b_Button4 = (Button) findViewById(R.id.button4);
+		b_Button4.setText(R.string.lbl_Button4);
+		b_Button4.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button4.setTextColor(mView.getToggleLockY() == true ? Color.GREEN : Color.BLACK);
 
-		b_Reset = (Button) findViewById(R.id.button5);
-		b_Reset.setText("Reset");
-		b_Reset.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_Reset.setTextColor(Color.GREEN);
+		b_Button5 = (Button) findViewById(R.id.button5);
+		b_Button5.setText(R.string.lbl_Button5);
+		b_Button5.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button5.setTextColor(Color.GREEN);
 		
-		b_Pov = (Button) findViewById(R.id.button6);
-		b_Pov.setText("Pov");
-		b_Pov.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_Pov.setTextColor(Color.GREEN);
+		b_Button6 = (Button) findViewById(R.id.button6);
+		b_Button6.setText(R.string.lbl_Button6);
+		b_Button6.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button6.setTextColor(Color.GREEN);
 
-		b_PlanetRot = (Button) findViewById(R.id.button7);
-		b_PlanetRot.setText("P.Rot");
-		b_PlanetRot.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_PlanetRot.setTextColor(mView.getTogglePlanetRotation() ? Color.GREEN : Color.BLACK);
+		b_Button7 = (Button) findViewById(R.id.button7);
+		b_Button7.setText(R.string.lbl_Button7);
+		b_Button7.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button7.setTextColor(mView.getTogglePlanetRotation() ? Color.GREEN : Color.BLACK);
 
-		b_LightRot = (Button) findViewById(R.id.button8);
-		b_LightRot.setText("L.Rot");
-		b_LightRot.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_LightRot.setTextColor(mView.getToggleLightRotation() ? Color.GREEN : Color.BLACK);
+		b_Button8 = (Button) findViewById(R.id.button8);
+		b_Button8.setText(R.string.lbl_Button8);
+		b_Button8.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button8.setTextColor(mView.getToggleLightRotation() ? Color.GREEN : Color.BLACK);
 
-		b_CameraRot = (Button) findViewById(R.id.button9);
-		b_CameraRot.setText("C.Rot");
-		b_CameraRot.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_CameraRot.setTextColor(mView.getToggleCameraRotation() ? Color.GREEN : Color.BLACK);
+		b_Button9 = (Button) findViewById(R.id.button9);
+		b_Button9.setText(R.string.lbl_Button9);
+		b_Button9.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_Button9.setTextColor(mView.getToggleCameraRotation() ? Color.GREEN : Color.BLACK);
 
-		b_Refs = (Button) findViewById(R.id.button10);
-		b_Refs.setText("Refs");
-		b_Refs.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
-		b_Refs.setTextColor(mView.getToggleRefs() ? Color.GREEN : Color.BLACK);
+		b_ButtonA = (Button) findViewById(R.id.button10);
+		b_ButtonA.setText(R.string.lbl_ButtonA);
+		b_ButtonA.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.silverbuttonbig, null));
+		b_ButtonA.setTextColor(mView.getToggleRefs() ? Color.GREEN : Color.BLACK);
 		
-		b_Sphere.setOnClickListener(new Button.OnClickListener() {
+		b_Button1.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_Sphere.setTextColor(mView.toggleSphereVisible() ? Color.GREEN : Color.BLACK);
+				b_Button1.setTextColor(mView.toggleSphereVisible() ? Color.GREEN : Color.BLACK);
 			}
 		});
 		
-		b_Mag.setOnClickListener(new Button.OnClickListener() {
+		b_Button2.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_Mag.setText("Mag:" + Integer.toString(mView.toggleMagnitude()));
-				b_Mag.setTextColor(Color.GREEN);
+				b_Button2.setText(R.string.lbl_Button2 + Integer.toString(mView.toggleMagnitude()));
+				b_Button2.setTextColor(Color.GREEN);
 			}
 		});
 
-		b_LockX.setOnClickListener(new Button.OnClickListener() {
+		b_Button3.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				b_LockX.setTextColor(Color.YELLOW);
+				b_Button3.setTextColor(Color.YELLOW);
 				myVib.vibrate(mVibTime);
-				b_LockX.setTextColor(mView.toggleLockX() ? Color.GREEN : Color.BLACK);
+				b_Button3.setTextColor(mView.toggleLockX() ? Color.GREEN : Color.BLACK);
 			}
 		});
 
-		b_LockY.setOnClickListener(new Button.OnClickListener() {
+		b_Button4.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_LockY.setTextColor(mView.toggleLockY() ? Color.GREEN : Color.BLACK);
+				b_Button4.setTextColor(mView.toggleLockY() ? Color.GREEN : Color.BLACK);
 			}
 		});
 
-		b_Reset.setOnClickListener(new Button.OnClickListener() {
+		b_Button5.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				b_Reset.setTextColor(Color.YELLOW);
+				b_Button5.setTextColor(Color.YELLOW);
 				myVib.vibrate(mVibTime);
-				b_Reset.setTextColor(Color.GREEN);
+				b_Button5.setTextColor(Color.GREEN);
 				mView.doReset();
 			}
 		});
 
-		b_Refs.setOnClickListener(new Button.OnClickListener() {
+		b_ButtonA.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				b_Refs.setTextColor(Color.YELLOW);
+				b_ButtonA.setTextColor(Color.YELLOW);
 				myVib.vibrate(mVibTime);
-				b_Refs.setTextColor(mView.toggleRefs() ? Color.GREEN : Color.BLACK);
+				b_ButtonA.setTextColor(mView.toggleRefs() ? Color.GREEN : Color.BLACK);
 			}
 		});
 
-		b_Pov.setOnClickListener(new Button.OnClickListener() {
+		b_Button6.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_Pov.setText(mView.toggleActiveCamera());
+				b_Button6.setText(mView.toggleActiveCamera());
 			}
 		});
 
-		b_PlanetRot.setOnClickListener(new Button.OnClickListener() {
+		b_Button7.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_PlanetRot.setTextColor(mView.togglePlanetRotation() ? Color.GREEN : Color.BLACK);
+				b_Button7.setTextColor(mView.togglePlanetRotation() ? Color.GREEN : Color.BLACK);
 			}
 		});
 
-		b_LightRot.setOnClickListener(new Button.OnClickListener() {
+		b_Button8.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_LightRot.setTextColor(mView.toggleLightRotation() ? Color.GREEN : Color.BLACK);
+				b_Button8.setTextColor(mView.toggleLightRotation() ? Color.GREEN : Color.BLACK);
 			}
 		});
 
-		b_CameraRot.setOnClickListener(new Button.OnClickListener() {
+		b_Button9.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				myVib.vibrate(mVibTime);
-				b_CameraRot.setTextColor(mView.toggleCameraRotation() ? Color.GREEN : Color.BLACK);
+				b_Button9.setTextColor(mView.toggleCameraRotation() ? Color.GREEN : Color.BLACK);
 			}
 		});
 	}
