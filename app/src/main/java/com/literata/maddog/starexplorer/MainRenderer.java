@@ -225,4 +225,6 @@ public class MainRenderer implements Renderer {
             }
         }
     }
+
+    public SceneManager getSceneManager() { return mManager; }
 }

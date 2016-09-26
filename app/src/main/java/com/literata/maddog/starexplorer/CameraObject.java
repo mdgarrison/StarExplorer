@@ -8,6 +8,7 @@ public class CameraObject {
     private final float[] mProjectionMatrix = new float[16];
 
     private float[] mEyePosition            = new float[3];
+    private float[] mOrigEyePosition        = new float[3];
     private float[] mTargetPosition         = new float[3];
     private float[] mUpVector               = new float[3];
     private float   mFieldOfView;
@@ -22,6 +23,10 @@ public class CameraObject {
         mEyePosition[0] = eyePos[0];
         mEyePosition[1] = eyePos[1];
         mEyePosition[2] = eyePos[2];
+
+        mOrigEyePosition[0] = eyePos[0];
+        mOrigEyePosition[1] = eyePos[1];
+        mOrigEyePosition[2] = eyePos[2];
 
         mTargetPosition[0] = tgtPos[0];
         mTargetPosition[1] = tgtPos[1];
@@ -68,7 +73,7 @@ public class CameraObject {
         return (float) Math.sqrt((mEyePosition[0] * mEyePosition[0]) + (mEyePosition[2] * mEyePosition[2]));
     }
 
-    private void setViewMatrix() {
+    public void setViewMatrix() {
         Matrix.setLookAtM(
                 mViewMatrix, 0,
                 mEyePosition[0], mEyePosition[1], mEyePosition[2],
@@ -97,5 +102,27 @@ public class CameraObject {
     
     public float getFieldOfView() {
         return mFieldOfView;
+    }
+
+    public void adjustXVal(float x) {
+        mEyePosition[0] += x;
+        setViewMatrix();
+    }
+
+    public void adjustYVal(float y) {
+        mEyePosition[1] += y;
+        setViewMatrix();
+    }
+
+    public void adjustZVal(float z) {
+        mEyePosition[2] += z;
+        setViewMatrix();
+    }
+
+    public void reset() {
+        mEyePosition[0] = mOrigEyePosition[0];
+        mEyePosition[1] = mOrigEyePosition[1];
+        mEyePosition[2] = mOrigEyePosition[2];
+        setViewMatrix();
     }
 }

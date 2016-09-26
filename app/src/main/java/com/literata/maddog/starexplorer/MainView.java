@@ -117,6 +117,8 @@ public class MainView extends GLSurfaceView {
     public boolean toggleCameraRotation() {
         return mRenderer.toggleCameraRotation();
     }
+
+    public MainRenderer getRenderer() { return mRenderer;}
 }
 
 
