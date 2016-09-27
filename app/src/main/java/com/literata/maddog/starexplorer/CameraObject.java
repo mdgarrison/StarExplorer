@@ -106,16 +106,19 @@ public class CameraObject {
 
     public void adjustXVal(float x) {
         mEyePosition[0] += x;
+        calculateCameraOrbitalRadius();
         setViewMatrix();
     }
 
     public void adjustYVal(float y) {
         mEyePosition[1] += y;
+        calculateCameraOrbitalRadius();
         setViewMatrix();
     }
 
     public void adjustZVal(float z) {
         mEyePosition[2] += z;
+        calculateCameraOrbitalRadius();
         setViewMatrix();
     }
 
@@ -123,6 +126,7 @@ public class CameraObject {
         mEyePosition[0] = mOrigEyePosition[0];
         mEyePosition[1] = mOrigEyePosition[1];
         mEyePosition[2] = mOrigEyePosition[2];
+        calculateCameraOrbitalRadius();
         setViewMatrix();
     }
 }
