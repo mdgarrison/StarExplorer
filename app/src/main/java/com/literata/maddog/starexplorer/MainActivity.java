@@ -6,6 +6,7 @@ import android.os.Vibrator;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.MotionEvent;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -134,14 +135,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        b_Button5.setOnClickListener(new Button.OnClickListener() {
+        b_Button5.setOnTouchListener(new Button.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                myVib.vibrate(mVibTime);
-                handleZNegAction(b_Button4);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    handleZNegAction(b_Button5);
+                }
+                return true;
             }
         });
 
+//        b_Button5.setOnClickListener(new Button.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                myVib.vibrate(mVibTime);
+//                handleZNegAction(b_Button4);
+//            }
+//        });
         b_Button6.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
