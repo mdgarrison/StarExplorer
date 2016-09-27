@@ -9,7 +9,6 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 public abstract class ModelObject {
-    protected SceneManager mManager;
     protected Context mContext;
     public float[] mVertexData;
     public FloatBuffer mDataBuffer;
@@ -38,7 +37,6 @@ public abstract class ModelObject {
     
     public ModelObject(Context context, SceneManager mgr) {
         mContext  = context;
-        mManager = mgr;
         Matrix.setIdentityM(mModelMatrix, 0);
         mIsVisible = true;
         setLocation(0f, 0f, 0f);

@@ -12,22 +12,14 @@ public class MainRenderer implements Renderer {
     private float mCameraDistance = 5.0f;
 
     private SceneManager    mManager;
-    //private Earth           mEarth;
     private PointLight      mPointLight;
     private CelestialSphere mCelestialSphere;
     private StarField       mStarField;
-    //private Moon            mMoon;
 
     private DefaultShaderProgram mDefaultShader;
-    //private EarthDaysideShaderProgram mEarthDaysideShader;
-    //private EarthNightsideShaderProgram mEarthNightsideShader;
 
-    private CameraObject   mCamera1;
-    private CameraObject   mCamera2;
-    private CameraObject   mCamera3;
     private CameraObject   mCamera4;
-    private CameraObject   mCamera5;
-    
+
     private final Context mContext;
     
     private PointF mUserAngle = new PointF(0f, 0f);
